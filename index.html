@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversão de Grandezas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c2e3ec;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: rgb(149, 191, 227);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin: auto;
+            box-shadow: 0px 4px 6px rgba(156, 32, 32, 0.1);
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            width: 90%;
+        }
+        button {
+            background-color: #147fe4;
+            color: rgb(255, 255, 255);
+            border: none;
+            cursor: pointer;
+            
+        }
+        button:hover {
+            background-color: #000cf0;
+        }
+        .resultado {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>𝐂𝐨𝐧𝐯𝐞𝐫𝐬ã𝐨 𝐝𝐞 𝐆𝐫𝐚𝐧𝐝𝐞𝐳𝐚𝐬</h2>
+        <label for="metros">Digite o valor em metros:</label>
+        <input type="number" id="metros" placeholder="Ex: 5">
+        <button onclick="converter()">Converter</button>
+
+        <div class="resultado" id="resultado"></div>
+    </div>
+
+    <script>
+        function converter() {
+            let metros = parseFloat(document.getElementById("metros").value);
+
+            if (isNaN(metros) || metros < 0) {
+                document.getElementById("resultado").innerHTML = "Digite um valor válido!";
+                return;
+            }
+
+            let cm = metros * 100;
+            let mm = metros * 1000;
+            let km = metros / 1000;
+
+            document.getElementById("resultado").innerHTML = `
+                ${metros} metros = ${cm} centímetros <br>
+                ${metros} metros = ${mm} milímetros <br>
+                ${metros} metros = ${km} quilômetros
+            `;
+        }
+    </script>
+
+</body>
+</html>
